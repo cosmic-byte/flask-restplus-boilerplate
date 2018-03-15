@@ -1,24 +1,28 @@
 #### FLASK RESTFUL API BOILER-PLATE WITH JWT
 
-Initial run: pip install -r requirements.txt
+### Terminal commands
 
-To run test: python manage.py test
+    Initial installation: make install
 
-To run application: python manage.py run
+    To run test: make tests
+
+    To run application: make run
+
+    To run all commands at once : make all
 
 
-### Running the app ###
+### Viewing the app ###
 
-Open the following url on your browser to view swagger documentation
-http://127.0.0.1:5000/
+    Open the following url on your browser to view swagger documentation
+    http://127.0.0.1:5000/
 
 
 ### Using Postman ####
 
-Authorization header is in the following format:
+    Authorization header is in the following format:
 
-Key: Authorization
-Value: "token_generated_during_login"
+    Key: Authorization
+    Value: "token_generated_during_login"
 
-For testing authorization, url for getting all user requires an admin token while url for getting a single
-user by public_id requires just a regular authentication.
+    For testing authorization, url for getting all user requires an admin token while url for getting a single
+    user by public_id requires just a regular authentication.
