@@ -1,7 +1,7 @@
 
-from app.skeleton import db
+from app.main import db
 
-from app.skeleton.models.blacklist import BlacklistToken
+from app.main.model.blacklist import BlacklistToken
 
 
 def save_token(token):

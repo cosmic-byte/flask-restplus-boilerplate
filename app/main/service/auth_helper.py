@@ -1,33 +1,21 @@
-from flask import request
-from flask_restplus import Resource
-from .util.dto import AuthDto
-from app.skeleton.models.user import User
-from ..service.blacklistService import save_token
-
-api = AuthDto.api
-info = AuthDto.info
+from app.main.model.user import User
+from ..service.blacklist_service import save_token
 
 
-@api.route('/login')
-class UserLogin(Resource):
-    """
-        User Login Resource
-    """
-    @api.doc('user login')
-    @api.expect(info)
-    def post(self):
-        # get the post data
-        post_data = request.json
+class Auth:
+
+    @staticmethod
+    def login_user(data):
         try:
             # fetch the user data
-            user = User.query.filter_by(email=post_data.get('email')).first()
-            if user and user.check_password(post_data.get('password')):
+            user = User.query.filter_by(email=data.get('email')).first()
+            if user and user.check_password(data.get('password')):
                 auth_token = user.encode_auth_token(user.id)
                 if auth_token:
                     response_object = {
                         'status': 'success',
                         'message': 'Successfully logged in.',
-                        'auth_token': auth_token.decode()
+                        'Authorization': auth_token.decode()
                     }
                     return response_object, 200
             else:
@@ -45,17 +33,10 @@ class UserLogin(Resource):
             }
             return response_object, 500
 
-
-@api.route('/logout')
-class LogoutAPI(Resource):
-    """
-    Logout Resource
-    """
-    def post(self):
-        # get auth token
-        auth_header = request.headers.get('Authorization')
-        if auth_header:
-            auth_token = auth_header.split(" ")[1]
+    @staticmethod
+    def logout_user(data):
+        if data:
+            auth_token = data.split(" ")[1]
         else:
             auth_token = ''
         if auth_token:
@@ -76,19 +57,10 @@ class LogoutAPI(Resource):
             }
             return response_object, 403
 
-
-class UserAPI:
-    """
-    User Resource
-    """
     @staticmethod
     def get_logged_in_user(new_request):
         # get the auth token
-        auth_header = new_request.headers.get('Authorization')
-        if auth_header:
-            auth_token = auth_header
-        else:
-            auth_token = ''
+        auth_token = new_request.headers.get('Authorization')
         if auth_token:
             resp = User.decode_auth_token(auth_token)
             if not isinstance(resp, str):

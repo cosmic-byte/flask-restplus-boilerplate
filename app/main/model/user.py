@@ -1,7 +1,7 @@
-import datetime
 
-from app.skeleton.models.blacklist import BlacklistToken
 from .. import db, flask_bcrypt
+import datetime
+from app.main.model.blacklist import BlacklistToken
 from ..config import key
 import jwt
 
@@ -29,6 +29,7 @@ class User(db.Model):
     def check_password(self, password):
         return flask_bcrypt.check_password_hash(self.password_hash, password)
 
+  
     def encode_auth_token(self, user_id):
         """
         Generates the Auth Token

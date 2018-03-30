@@ -1,4 +1,3 @@
-selenium
 alembic==0.9.6
 aniso8601==1.3.0
 bcrypt==3.1.4
@@ -32,6 +31,7 @@ python-editor==1.0.3
 python-engineio==2.0.2
 python-socketio==1.8.4
 pytz==2017.3
+selenium==3.8.1
 six==1.11.0
 SQLAlchemy==1.2.0
 Werkzeug==0.14.1

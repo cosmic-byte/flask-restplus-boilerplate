@@ -2,14 +2,14 @@ from functools import wraps
 
 from flask import request
 
-from app.skeleton.api.auth import UserAPI
+from app.main.service.auth_helper import Auth
 
 
 def token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
 
-        data, status = UserAPI.get_logged_in_user(request)
+        data, status = Auth.get_logged_in_user(request)
         token = data.get('data')
 
         if not token:
@@ -24,7 +24,7 @@ def admin_token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
 
-        data, status = UserAPI.get_logged_in_user(request)
+        data, status = Auth.get_logged_in_user(request)
         token = data.get('data')
 
         if not token:

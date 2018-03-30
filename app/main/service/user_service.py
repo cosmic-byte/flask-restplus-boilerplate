@@ -1,10 +1,8 @@
 import uuid
-
 import datetime
 
-from app.skeleton import db
-
-from app.skeleton.models.user import User
+from app.main import db
+from app.main.model.user import User
 
 
 def save_new_user(data):
@@ -24,7 +22,7 @@ def save_new_user(data):
             'status': 'fail',
             'message': 'User already exists. Please Log in.',
         }
-        return response_object, 202
+        return response_object, 409
 
 
 def get_all_users():
@@ -42,7 +40,7 @@ def generate_token(user):
         response_object = {
             'status': 'success',
             'message': 'Successfully registered.',
-            'auth_token': auth_token.decode()
+            'Authorization': auth_token.decode()
         }
         return response_object, 201
     except Exception as e:
