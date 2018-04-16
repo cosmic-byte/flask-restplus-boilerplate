@@ -26,3 +26,6 @@
 
     For testing authorization, url for getting all user requires an admin token while url for getting a single
     user by public_id requires just a regular authentication.
+
+### Full description and guide ###
+https://medium.freecodecamp.org/structuring-a-flask-restplus-web-service-for-production-builds-c2ec676de563
