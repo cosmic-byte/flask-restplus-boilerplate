@@ -1,0 +1,20 @@
+{
+  "name": "string",
+  "type": "bsdf",
+  "red": 0,
+  "green": 0,
+  "blue": 0,
+  "radius": 0,
+  "r_reflectance": 0,
+  "g_reflectance": 0,
+  "b_reflectance": 0,
+  "specularity": 0,
+  "roughness": 0,
+  "r_transmittance": 0,
+  "g_transmittance": 0,
+  "b_transmittance": 0,
+  "up_orientation": 0,
+  "thickness": 0,
+  "refraction": 0,
+  "modifier": "string"
+}
