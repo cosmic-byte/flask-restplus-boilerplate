@@ -30,7 +30,6 @@ def save_new_analysis_grid(data):
                 window_group_data['id'] = api_response['id']
             else:
                 return api_response, 409
-        print(window_group_data)
         honeybee_surface = HoneybeeSurface.query\
             .filter_by(id=window_group_data['id']).first()
         window_groups.append(honeybee_surface)

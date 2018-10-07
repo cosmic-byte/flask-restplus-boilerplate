@@ -99,3 +99,57 @@ class SurfaceGroupDto:
         'honeybee_surface_count': fields.Integer(description='The number of honeybee surfaces in this surface group')
     })
 
+
+class DataCollectionValue(fields.Raw):
+    __schema_type__ = None
+
+    def validate(self, value):
+        if isinstance(value, str) or isinstance(value, int) or isinstance(value, float):
+            return True
+        else:
+            return False
+
+
+class DataCollectionUnit(fields.Raw):
+    __schema_type__ = None
+
+    def validate(self, value):
+        if isinstance(value, str) or value is None:
+            return True
+
+
+class EPWDto:
+    api = Namespace('epw', description='ladybug formatted epw file')
+    data_collection = api.model('data collection', {
+        # TODO: add header parameter
+        'header': fields.Nested(api.model('data collection header', {
+            'data_type': fields.String(description='Name of the data type eg: temperature'),
+            'unit': DataCollectionUnit(description='The unit of measurement of the data collection eg: cm')
+        })),
+        'data': fields.List(fields.Nested(api.model('data point', {
+            'nickname': DataCollectionUnit(description='Honestly... I\'m not sure what this does...'),
+            'standard': fields.String(description='Measurement standard', enum=['SI','IP']),
+            'datetime': fields.Nested(api.model('datetime', {
+                'month': fields.Integer(),
+                'day': fields.Integer(),
+                'hour': fields.Integer(),
+                'minute': fields.Integer(),
+                'year': fields.Integer(),
+                'leap_year': fields.Boolean()
+            })),
+            'value': DataCollectionValue(description='Value of the measurement')
+        })))
+    })
+    epw = api.model('epw', {
+        'id': fields.String(description='The epw id'),
+        'city': fields.String(description='The city the epw is modelled for'),
+        'country': fields.String(description='The country the epw is modelled for'),
+        'source': fields.String(description='The name of the provider of the EPW'),
+        'station_id': fields.String(description='The id of the station the epw is measured from (if it exists)'),
+        'latitude': fields.Float(description=''),
+        'longitude': fields.Float(description=''),
+        'time_zone': fields.Float(),
+        'elevation': fields.Float(),
+        'wea_id': fields.String(description='The id of the WEA file created from this epw'),
+        'data': fields.List(fields.Nested(data_collection)),
+    })
