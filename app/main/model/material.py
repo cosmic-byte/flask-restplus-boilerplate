@@ -16,8 +16,8 @@ class Material(db.Model):
     """ Material Model for storing material data """
     __tablename__ = 'materials'
 
-    # id = db.Column(UUID(as_uuid=True), primary_key=True, server_default=sqlalchemy.text("uuid_generate_v4()"))
-    id = db.Column(UUID(as_uuid=True), primary_key=True)
+    id = db.Column(UUID(as_uuid=True), primary_key=True, server_default=sqlalchemy.text("uuid_generate_v4()"))
+    # id = db.Column(UUID(as_uuid=True), primary_key=True)
     created_on = db.Column(db.DateTime, nullable=False)
     created_by = db.Column(db.String, nullable=False)
     updated_on = db.Column(db.DateTime, nullable=False)
