@@ -39,9 +39,9 @@ def create_surface_group(self, object_data):
     )
 
 
-class TestHoneybeeSurfaceCRUD(BaseTestCase):
-    def test_simple_surface_crud(self):
-        """ Test for basic honeybee surface creation """
+class TestSurfaceGroupCRUD(BaseTestCase):
+    def test_surface_group_crud(self):
+        """ Test for surface group creation """
         self.maxDiff = None
         with self.client:
             response = create_honeybee_surface(self, basic_surface)
