@@ -12,9 +12,9 @@ from .main.controller.surface_group_controller import api as surface_group_ns
 blueprint = Blueprint('api', __name__)
 
 api = Api(blueprint,
-          title='Honeybee CRUD API ',
+          title='Ladybug Tools CRUD API ',
           version='1.0',
-          description='a crud api for honeybee objects'
+          description='a crud api for ladybug tools objects'
           )
 
 api.add_namespace(user_ns, path='/user')
