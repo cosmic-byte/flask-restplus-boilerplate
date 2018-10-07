@@ -13,6 +13,10 @@ app.register_blueprint(blueprint)
 
 app.app_context().push()
 
+# Adds autoincrementing UUID capability to PostgreSQL
+uuid_extension_sql = "CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";"
+db.engine.execute(uuid_extension_sql)
+
 manager = Manager(app)
 
 migrate = Migrate(app, db)
@@ -33,6 +37,7 @@ def test():
     if result.wasSuccessful():
         return 0
     return 1
+
 
 if __name__ == '__main__':
     manager.run()

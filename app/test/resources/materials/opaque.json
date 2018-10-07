@@ -1,0 +1,10 @@
+{
+  "name": "test opaque material",
+  "type": "opaque",
+  "r_reflectance": 0.4,
+  "g_reflectance": 0.3,
+  "b_reflectance": 0.7,
+  "specularity": 0.3,
+  "roughness": 0.2,
+  "modifier": "void"
+}

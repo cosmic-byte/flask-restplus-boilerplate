@@ -1,0 +1,42 @@
+{
+  "name": "surface 2",
+  "type": "floor",
+  "radiance_material": {
+    "name": "test opaque material",
+    "type": "opaque",
+    "r_reflectance": 0.4,
+    "g_reflectance": 0.3,
+    "b_reflectance": 0.7,
+    "specularity": 0.3,
+    "roughness": 0.2,
+    "modifier": "void"
+  },
+  "vertices": [{
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  ],
+  "states": [{
+    "name": "window state",
+    "type": "window",
+    "radiance_material": {
+      "name": "test material",
+      "type": "bsdf",
+      "radius": 2,
+      "xml_data": "string",
+      "up_orientation": 1,
+      "thickness": 3
+    }
+  }]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "test translucent material",
+  "type": "translucent",
+  "r_transmittance": 0.4,
+  "g_transmittance": 0.3,
+  "b_transmittance": 0.7,
+  "refraction": 0.7,
+  "modifier": "void"
+}

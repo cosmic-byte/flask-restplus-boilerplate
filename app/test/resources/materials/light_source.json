@@ -1,0 +1,9 @@
+{
+  "name": "test light source material",
+  "type": "light_source",
+  "red": 0.3,
+  "green": 0.5,
+  "blue": 0.3,
+  "radius": 5,
+  "modifier": "void"
+}

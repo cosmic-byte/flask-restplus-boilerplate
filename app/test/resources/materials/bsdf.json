@@ -1,0 +1,8 @@
+{
+  "name": "test bsdf material",
+  "type": "bsdf",
+  "xml_data": "SOME SUPER LONG XML STRING",
+  "up_orientation": 1,
+  "thickness": 4,
+  "modifier": "void"
+}

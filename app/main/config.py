@@ -12,17 +12,43 @@ class Config:
 
 
 class DevelopmentConfig(Config):
+    # hard coded for now
+    user = "postgres"
+    pword = "supersecretpassword"
+    server_ip = "127.0.0.1"
+    port = "5432"
+    db_name = "ladybugtools"
+
     # uncomment the line below to use postgres
     # SQLALCHEMY_DATABASE_URI = postgres_local_base
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'flask_boilerplate_main.db')
+    SQLALCHEMY_DATABASE_URI =\
+        "postgresql://{user}:{pword}@{server_ip}:{port}/{db_name}"\
+        .format(user=user, pword=pword, server_ip=server_ip, port=port,
+                db_name=db_name)
+
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 class TestingConfig(Config):
+    # hard coded for now
+    user = "postgres"
+    pword = "supersecretpassword"
+    server_ip = "127.0.0.1"
+    port = "5432"
+    db_name = "ladybugtools_test"
+
     DEBUG = True
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'flask_boilerplate_test.db')
+    SQLALCHEMY_SERVER_URI =\
+        "postgresql://{user}:{pword}@{server_ip}:{port}"\
+        .format(user=user, pword=pword, server_ip=server_ip, port=port)
+
+    SQLALCHEMY_DATABASE_URI =\
+        "postgresql://{user}:{pword}@{server_ip}:{port}/{db_name}"\
+        .format(user=user, pword=pword, server_ip=server_ip, port=port,
+                db_name=db_name)
+
     PRESERVE_CONTEXT_ON_EXCEPTION = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 

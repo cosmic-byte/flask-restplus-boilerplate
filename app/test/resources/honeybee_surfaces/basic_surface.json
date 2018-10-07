@@ -1,0 +1,34 @@
+{
+  "name": "surface 1",
+  "type": "wall",
+  "radiance_material": {
+    "name": "test material",
+    "type": "bsdf",
+    "radius": 2,
+    "xml_data": "string",
+    "up_orientation": 1,
+    "thickness": 3,
+    "modifier": "void"
+  },
+  "vertices": [{
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  ]
+}
