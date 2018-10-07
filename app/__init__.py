@@ -9,6 +9,7 @@ from .main.controller.honeybee_surface_controller import api as\
 from .main.controller.analysis_grid_controller import api as analysis_grid_ns
 from .main.controller.surface_group_controller import api as surface_group_ns
 from .main.controller.epw_controller import api as epw_ns
+from .main.controller.wea_controller import api as wea_ns
 
 blueprint = Blueprint('api', __name__)
 
@@ -25,3 +26,4 @@ api.add_namespace(honeybee_surface_ns, path='/honeybee_surface')
 api.add_namespace(analysis_grid_ns, path='/analysis_grid')
 api.add_namespace(surface_group_ns, path='/surface_group')
 api.add_namespace(epw_ns, path='/epw')
+api.add_namespace(wea_ns, path='/wea')

@@ -31,14 +31,14 @@ def save_new_epw(data):
         updated_on=datetime.datetime.utcnow(),
         updated_by=str(data['user_id']),
 
-        city=data['city'],
-        country=data['country'],
-        source=data['source'],
-        station_id=data['station_id'],
-        latitude=data['latitude'],
-        longitude=data['longitude'],
-        time_zone=data['time_zone'],
-        elevation=data['elevation'],
+        city=data['location']['city'],
+        country=data['location']['country'],
+        source=data['location']['source'],
+        station_id=data['location']['station_id'],
+        latitude=data['location']['latitude'],
+        longitude=data['location']['longitude'],
+        time_zone=data['location']['time_zone'],
+        elevation=data['location']['elevation'],
         data_points=data_points
     )
 
@@ -60,7 +60,8 @@ def save_new_epw(data):
 
 
 def epw_data_row(data, dt):
-    data_row = EPWData(datetime=datetime.datetime.strptime(dt, "%Y-%m-%d %H:%M"))
+    data_row = EPWData(datetime=datetime.datetime
+                       .strptime(dt, "%Y-%m-%d %H:%M"))
 
     for key, value in data.items():
         try:
@@ -131,26 +132,7 @@ def serialize_epw(epw):
 
     epw_json = {
         'id': epw.id,
-        'city': epw.city,
-        'country': epw.country,
-        'source': epw.source,
-        'station_id': epw.station_id,
-        'latitude': epw.latitude,
-        'longitude': epw.longitude,
-        'time_zone': epw.time_zone,
-        'elevation': epw.elevation,
-        # 'wea_id': epw.wea_id,
-        'data': data_collections
-    }
-    return epw_json
-
-
-def get_all_epws():
-    query = EPW.query.all()  # .noload()
-    epws = []
-    for epw in query:
-        epws.append({
-            'id': epw.id,
+        'location': {
             'city': epw.city,
             'country': epw.country,
             'source': epw.source,
@@ -159,6 +141,29 @@ def get_all_epws():
             'longitude': epw.longitude,
             'time_zone': epw.time_zone,
             'elevation': epw.elevation
+        },
+        'data': data_collections
+    }
+    return epw_json
+
+
+def get_all_epws():
+    query = EPW.query.filter_by(is_wea=False).all()  # .noload()
+    epws = []
+    for epw in query:
+        epws.append({
+            'id': epw.id,
+            'location': {
+                'city': epw.city,
+                'country': epw.country,
+                'source': epw.source,
+                'station_id': epw.station_id,
+                'latitude': epw.latitude,
+                'longitude': epw.longitude,
+                'time_zone': epw.time_zone,
+                'elevation': epw.elevation
+            }
+
         })
     return epws
 

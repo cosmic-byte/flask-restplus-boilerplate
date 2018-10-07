@@ -24,6 +24,7 @@ class EPW(db.Model):
     longitude = db.Column(db.Float(precision=2), nullable=False)
     time_zone = db.Column(db.Float)
     elevation = db.Column(db.Float(precision=2), nullable=False)
+    is_wea = db.Column(db.Boolean(), default=False)
 
     # wea = relationship('WEA', backref=backref('epw', uselist=False))
     data_points = relationship('EPWData', backref='epw')
