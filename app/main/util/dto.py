@@ -71,6 +71,24 @@ class HoneybeeSurfaceDto:
     })
 
 
+class AnalysisGridDto:
+    api = Namespace('analysis grid', description='analysis grid related operations')
+    analysis_grid = api.model('analysis grid', {
+        'id': fields.String(description='The analysis grid id'),
+        'name': fields.String(description='The name of the analysis grid'),
+        'analysis_points': fields.List(fields.Nested(api.model('analysis_point', {
+            'x': fields.Float(required=True),
+            'y': fields.Float(required=True),
+            'z': fields.Float(required=True),
+            'vx': fields.Float(required=True),
+            'vy': fields.Float(required=True),
+            'vz': fields.Float(required=True)
+            }
+        ))),
+        'window_groups': fields.List(fields.Nested(HoneybeeSurfaceDto.honeybee_surface))
+        })
+
+
 class SurfaceGroupDto:
     api = Namespace('surface group', description='surface group related operations')
     surface_group = api.model('surface group', {

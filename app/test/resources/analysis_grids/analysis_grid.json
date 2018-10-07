@@ -1,0 +1,72 @@
+{
+  "name": "test grid",
+  "analysis_points": [{
+      "x": 2,
+      "y": 4,
+      "z": 2,
+      "vx": 1,
+      "vy": 1,
+      "vz": 1
+    }, {
+      "x": 2,
+      "y": 4,
+      "z": 5,
+      "vx": 1,
+      "vy": 1,
+      "vz": 1
+    },
+    {
+      "x": 6,
+      "y": 12,
+      "z": 13,
+      "vx": 1,
+      "vy": 1,
+      "vz": 1
+    }
+  ],
+  "window_groups": [{
+    "name": "test surface",
+    "type": "window",
+    "radiance_material": {
+      "name": "test material",
+      "type": "bsdf",
+      "radius": 2,
+      "xml_data": "SOME SUPER LONG XML STRING",
+      "up_orientation": 1,
+      "thickness": 4
+    },
+    "vertices": [{
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    ],
+    "states": [{
+      "name": "test state",
+      "type": "window",
+      "radiance_material": {
+        "name": "test material",
+        "type": "bsdf",
+        "radius": 2,
+        "xml_data": "string",
+        "up_orientation": 1,
+        "thickness": 3
+      }
+    }]
+  }]
+}
