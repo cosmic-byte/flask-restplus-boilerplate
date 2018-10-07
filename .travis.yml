@@ -1,0 +1,16 @@
+services:
+  - postgresql
+
+  before_script:
+  - psql -c 'create database ladybugtools_test;' -U postgres
+
+language: python
+
+python:
+  - "3.6"
+
+install:
+ - pip install -r requirements.txt
+
+script:
+  - python manage.py test
