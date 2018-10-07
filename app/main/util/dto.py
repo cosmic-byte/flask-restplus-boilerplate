@@ -55,7 +55,7 @@ class HoneybeeSurfaceDto:
     honeybee_surface = api.model('honeybee_surface', {
         'id': fields.String(description='The honeybee surface id'),
         'name': fields.String(description='The name of the honeybee surface'),
-        'type': fields.String(required=True, description='The type of surface', enum=['wall', 'underground wall', 'roof', 'underground ceiling', 'floor', 'slab on grade', 'exposed floor', 'ceiling', 'window', 'context']),
+        'type': fields.String(description='The type of surface', enum=['wall', 'underground wall', 'roof', 'underground ceiling', 'floor', 'slab on grade', 'exposed floor', 'ceiling', 'window', 'context']),
         'state_name': fields.String(description='the name of the default honeybee surface state, usually \'default\''),
         'radiance_material': fields.Nested(MaterialDto.material),
         'vertices': fields.List(fields.Nested(api.model('vertex', {
@@ -68,5 +68,16 @@ class HoneybeeSurfaceDto:
             'type': fields.String(require=True, description='The type of surface', attribute='type._value_', enum=['wall', 'underground wall', 'roof', 'underground ceiling', 'floor', 'slab on grade', 'exposed floor', 'ceiling', 'window', 'context']),
             'radiance_material': fields.Nested(MaterialDto.material)
         })))
+    })
+
+
+class SurfaceGroupDto:
+    api = Namespace('surface group', description='surface group related operations')
+    surface_group = api.model('surface group', {
+        'id': fields.String(description='The surface group id'),
+        'name': fields.String(description='The name of the surface group'),
+        'description': fields.String(description='Description of the surface group '),
+        'honeybee_surfaces': fields.List(fields.Nested(HoneybeeSurfaceDto.honeybee_surface)),
+        'honeybee_surface_count': fields.Integer(description='The number of honeybee surfaces in this surface group')
     })
 

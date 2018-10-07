@@ -93,7 +93,7 @@ class TestHoneybeeSurfaceCRUD(BaseTestCase):
             self.assertEqual(data['radiance_material']['name'],
                              material['name'])
 
-    def test_material_with_states(self):
+    def test_surface_with_states(self):
         """ Test for creation of honeybee surface with states """
         with self.client:
             material_response = create_material(self, material)
