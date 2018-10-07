@@ -48,3 +48,25 @@ class MaterialDto:
         'refraction': fields.Float(min=0, max=1, description='The refraction index of the material'),
         'modifier': fields.String(description='The string modifier of the material')
     })
+
+
+class HoneybeeSurfaceDto:
+    api = Namespace('honeybee_surface', description='honeybee surface related operations')
+    honeybee_surface = api.model('honeybee_surface', {
+        'id': fields.String(description='The honeybee surface id'),
+        'name': fields.String(description='The name of the honeybee surface'),
+        'type': fields.String(required=True, description='The type of surface', enum=['wall', 'underground wall', 'roof', 'underground ceiling', 'floor', 'slab on grade', 'exposed floor', 'ceiling', 'window', 'context']),
+        'state_name': fields.String(description='the name of the default honeybee surface state, usually \'default\''),
+        'radiance_material': fields.Nested(MaterialDto.material),
+        'vertices': fields.List(fields.Nested(api.model('vertex', {
+            'x': fields.Float(required=True),
+            'y': fields.Float(required=True),
+            'z': fields.Float(required=True)
+        }))),
+        'states': fields.List(fields.Nested(api.model('surface state', {
+            'name': fields.String(description='Name of the state'),
+            'type': fields.String(require=True, description='The type of surface', attribute='type._value_', enum=['wall', 'underground wall', 'roof', 'underground ceiling', 'floor', 'slab on grade', 'exposed floor', 'ceiling', 'window', 'context']),
+            'radiance_material': fields.Nested(MaterialDto.material)
+        })))
+    })
+
