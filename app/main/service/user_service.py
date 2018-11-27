@@ -36,7 +36,7 @@ def get_a_user(public_id):
 def generate_token(user):
     try:
         # generate the auth token
-        auth_token = user.encode_auth_token(user.id)
+        auth_token = User.encode_auth_token(user.id)
         response_object = {
             'status': 'success',
             'message': 'Successfully registered.',

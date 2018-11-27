@@ -6,7 +6,7 @@ click==6.7
 coverage==4.4.2
 enum-compat==0.0.2
 eventlet==0.21.0
-Flask==0.12.2
+flask>=0.12.3
 Flask-Bcrypt==0.7.1
 Flask-Cors==3.0.3
 Flask-Migrate==2.1.1

@@ -17,7 +17,7 @@ class TestUserModel(BaseTestCase):
         )
         db.session.add(user)
         db.session.commit()
-        auth_token = user.encode_auth_token(user.id)
+        auth_token = User.encode_auth_token(user.id)
         self.assertTrue(isinstance(auth_token, bytes))
 
     def test_decode_auth_token(self):
@@ -28,7 +28,7 @@ class TestUserModel(BaseTestCase):
         )
         db.session.add(user)
         db.session.commit()
-        auth_token = user.encode_auth_token(user.id)
+        auth_token = User.encode_auth_token(user.id)
         self.assertTrue(isinstance(auth_token, bytes))
         self.assertTrue(User.decode_auth_token(auth_token.decode("utf-8") ) == 1)
 
