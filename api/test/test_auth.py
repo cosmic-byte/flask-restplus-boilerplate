@@ -1,14 +1,14 @@
+import json
 import unittest
 
-from app.main import db
-from app.main.model.blacklist import BlacklistToken
-import json
-from app.test.base import BaseTestCase
+from .base import BaseTestCase
+from ..main.database import db
+from ..main.auth.auth_model import BlacklistToken
 
 
 def register_user(self):
     return self.client.post(
-        '/user/',
+        '/users/',
         data=json.dumps(dict(
             email='joe@gmail.com',
             username='username',

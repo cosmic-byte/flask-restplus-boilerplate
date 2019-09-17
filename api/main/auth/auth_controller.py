@@ -1,32 +1,34 @@
 from flask import request
-from flask_restplus import Resource
+from flask_restplus import Namespace, Resource, fields
 
-from app.main.service.auth_helper import Auth
-from ..util.dto import AuthDto
+from .auth_helper import Auth
+from .auth_dto import auth_dto
 
-api = AuthDto.api
-user_auth = AuthDto.user_auth
+ns = Namespace('auth', description='authentication related operations')
+ns.add_model(auth_dto.name, auth_dto)
 
 
-@api.route('/login')
+@ns.route('/login')
 class UserLogin(Resource):
     """
-        User Login Resource
+    User Login Resource
     """
-    @api.doc('user login')
-    @api.expect(user_auth, validate=True)
+
+    @ns.doc('user login')
+    @ns.expect(auth_dto, validate=True)
     def post(self):
         # get the post data
         post_data = request.json
         return Auth.login_user(data=post_data)
 
 
-@api.route('/logout')
+@ns.route('/logout')
 class LogoutAPI(Resource):
     """
     Logout Resource
     """
-    @api.doc('logout a user')
+
+    @ns.doc('logout a user')
     def post(self):
         # get auth token
         auth_header = request.headers.get('Authorization')

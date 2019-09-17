@@ -1,5 +1,6 @@
-from .. import db
 import datetime
+
+from ..database import db
 
 
 class BlacklistToken(db.Model):

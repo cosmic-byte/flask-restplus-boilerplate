@@ -1,8 +1,8 @@
-import uuid
 import datetime
+import uuid
 
-from app.main import db
-from app.main.model.user import User
+from ..database import db
+from .user_model import User
 
 
 def save_new_user(data):
@@ -54,4 +54,3 @@ def generate_token(user):
 def save_changes(data):
     db.session.add(data)
     db.session.commit()
-
