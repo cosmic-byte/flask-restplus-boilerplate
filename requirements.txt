@@ -28,7 +28,7 @@ pycparser==2.18
 PyJWT==1.5.3
 python-dateutil==2.6.1
 python-editor==1.0.3
-python-engineio==2.0.2
+python-engineio==3.8.2.post1
 python-socketio==1.8.4
 pytz==2017.3
 selenium==3.8.1
