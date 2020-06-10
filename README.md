@@ -1,6 +1,7 @@
 #### FLASK RESTFUL API BOILER-PLATE WITH JWT
 
 ### Terminal commands
+Note: make sure you have `pip` and `virtualenv` installed.
 
     Initial installation: make install
 
