@@ -1,5 +1,5 @@
 from flask import request
-from flask_restplus import Resource
+from flask_restx import Resource
 
 from app.main.util.decorator import admin_token_required
 from ..util.dto import UserDto

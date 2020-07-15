@@ -1,4 +1,3 @@
-
 from app.main import db
 
 from app.main.model.blacklist import BlacklistToken
