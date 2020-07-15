@@ -1,4 +1,10 @@
-#### FLASK RESTFUL API BOILER-PLATE WITH JWT
+#### FLASK RESTX BOILER-PLATE WITH JWT
+
+“FLASK RESTX BOILER-PLATE is being sponsored by the following tool; please help to support us by taking a look and signing up to a free trial”
+<!--
+<a href="https://tracking.gitads.io/?repo=YOUR_REPO">
+ <img src="https://images.gitads.io/YOUR_REPO" alt="GitAds"/> </a>
+-->
 
 ### Terminal commands
 Note: make sure you have `pip` and `virtualenv` installed.
@@ -11,6 +17,14 @@ Note: make sure you have `pip` and `virtualenv` installed.
 
     To run all commands at once : make all
 
+    Note: make sure to run the initial migration commands to update the database.
+    ```
+    > python manage.py db init
+
+    > python manage.py db migrate --message 'initial database migration'
+
+    > python manage.py db upgrade
+    ```
 
 ### Viewing the app ###
 
