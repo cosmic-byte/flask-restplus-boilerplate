@@ -1,10 +1,5 @@
 #### FLASK RESTX BOILER-PLATE WITH JWT
 
-“Flask restx boiler-plate is being sponsored by the following tool; please help to support us by taking a look and signing up to a free trial”
-<a href="https://tracking.gitads.io/?repo=flask-restplus-boilerplate">
- <img src="https://images.gitads.io/flask-restplus-boilerplate" alt="GitAds"/> </a>
-
-
 ### Terminal commands
 Note: make sure you have `pip` and `virtualenv` installed.
 
