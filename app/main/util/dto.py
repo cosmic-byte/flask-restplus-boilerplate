@@ -17,3 +17,11 @@ class AuthDto:
         'email': fields.String(required=True, description='The email address'),
         'password': fields.String(required=True, description='The user password '),
     })
+
+
+class TrainDto:
+    api = Namespace("train", description=' model train related operations')
+    analysis_request = api.model("analysis_request", {
+        'modelConfigUrl': fields.String(required=True, description=''),
+        'dataSetUrl': fields.String(required=True, description='')
+    })
