@@ -27,3 +27,7 @@ run:
 	python manage.py run
 
 all: clean install tests run
+
+testModel:
+	. venv/bin/activate; \
+	python manage.py testModel

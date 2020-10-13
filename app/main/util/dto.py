@@ -19,8 +19,8 @@ class AuthDto:
     })
 
 
-class TrainDto:
-    api = Namespace("train", description=' model train related operations')
+class AnalysisDto:
+    api = Namespace("analysis", description=' model analysis related operations')
     analysis_request = api.model("analysis_request", {
         'modelConfigUrl': fields.String(required=True, description=''),
         'dataSetUrl': fields.String(required=True, description='')
