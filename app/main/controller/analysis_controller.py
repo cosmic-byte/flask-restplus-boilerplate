@@ -19,7 +19,7 @@ class Analysis(Resource):
     def post(self):
         post_data = request.json
 
-        lr = DlLinerRegression(post_data['dataSetUrl'], "rs.txt")
+        lr = DlLinerRegression(post_data['dataSetUrl'], post_data['modelConfigUrl'], "rs.txt")
         lr.readData()
         lr.run()
         lr.output()

@@ -6,6 +6,7 @@ class DlLinearRegressionTest(BaseTestCase):
 
     def testDlLinearRegression(self):
         lr = DlLinerRegression(dataFileName="app/test/coretest/dllinearregressiontest/Folds5x2_pp.csv",
+                               configFileName="xxxxx.cfg",
                                outputFileName="app/test/coretest/dllinearregressiontest/rs.txt")
 
         lr.readData()

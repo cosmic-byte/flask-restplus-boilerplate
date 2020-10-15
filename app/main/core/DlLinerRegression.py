@@ -7,8 +7,9 @@ import numpy as np
 
 class DlLinerRegression:
 
-    def __init__(self, dataFileName, outputFileName, **hyperPrams):
+    def __init__(self, dataFileName, configFileName, outputFileName, **hyperPrams):
         self.dataFileName = dataFileName
+        self.configFileName = configFileName
         self.outputFileName = outputFileName
         self.hyperPrams = hyperPrams
 
