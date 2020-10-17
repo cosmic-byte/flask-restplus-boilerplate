@@ -1,0 +1,19 @@
+ARIMA:时间序列分析模型
+
+{
+ "name": "ARIMA",
+ "columnConfigs": {"y": ["x1"]},
+ "hyperParams": {"forcast_tesq":10,'auto_BIC':True}
+}
+
+"forcast_tesq": int,预测的期数
+"auto_BIC":bool,是否根据BIC自动定阶
+
+GM11:灰色预测模型
+{
+ "name": "GM11",
+ "columnConfigs": {"y": ["x1"]},
+ "hyperParams": {"forcast_tesq":48,}
+}
+
+"forcast_tesq": int,预测的期数

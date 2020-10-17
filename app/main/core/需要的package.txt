@@ -1,0 +1,9 @@
+statsmodels
+numpy
+matplotlib
+demjson
+sklearn
+pandas
+sys
+os
+shutil
