@@ -3,9 +3,10 @@ from functools import wraps
 from flask import request
 
 from app.main.service.auth_helper import Auth
+from typing import Callable
 
 
-def token_required(f):
+def token_required(f) -> Callable:
     @wraps(f)
     def decorated(*args, **kwargs):
 
@@ -20,7 +21,7 @@ def token_required(f):
     return decorated
 
 
-def admin_token_required(f):
+def admin_token_required(f: Callable) -> Callable:
     @wraps(f)
     def decorated(*args, **kwargs):
 

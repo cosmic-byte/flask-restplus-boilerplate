@@ -4,6 +4,7 @@ import datetime
 from app.main.model.blacklist import BlacklistToken
 from ..config import key
 import jwt
+from typing import Union
 
 
 class User(db.Model):
@@ -26,11 +27,11 @@ class User(db.Model):
     def password(self, password):
         self.password_hash = flask_bcrypt.generate_password_hash(password).decode('utf-8')
 
-    def check_password(self, password):
+    def check_password(self, password: str) -> bool:
         return flask_bcrypt.check_password_hash(self.password_hash, password)
 
     @staticmethod
-    def encode_auth_token(user_id):
+    def encode_auth_token(user_id: int) -> bytes:
         """
         Generates the Auth Token
         :return: string
@@ -50,7 +51,7 @@ class User(db.Model):
             return e
 
     @staticmethod
-    def decode_auth_token(auth_token):
+    def decode_auth_token(auth_token: str) -> Union[str, int]:
         """
         Decodes the auth token
         :param auth_token:

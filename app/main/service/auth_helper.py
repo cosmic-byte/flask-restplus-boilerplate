@@ -1,11 +1,12 @@
 from app.main.model.user import User
 from ..service.blacklist_service import save_token
+from typing import Dict, Tuple
 
 
 class Auth:
 
     @staticmethod
-    def login_user(data):
+    def login_user(data: Dict[str, str]) -> Tuple[Dict[str, str], int]:
         try:
             # fetch the user data
             user = User.query.filter_by(email=data.get('email')).first()
@@ -34,7 +35,7 @@ class Auth:
             return response_object, 500
 
     @staticmethod
-    def logout_user(data):
+    def logout_user(data: str) -> Tuple[Dict[str, str], int]:
         if data:
             auth_token = data.split(" ")[1]
         else:

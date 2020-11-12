@@ -3,9 +3,10 @@ import datetime
 
 from app.main import db
 from app.main.model.user import User
+from typing import Dict, Tuple
 
 
-def save_new_user(data):
+def save_new_user(data: Dict[str, str]) -> Tuple[Dict[str, str], int]:
     user = User.query.filter_by(email=data['email']).first()
     if not user:
         new_user = User(
@@ -33,7 +34,7 @@ def get_a_user(public_id):
     return User.query.filter_by(public_id=public_id).first()
 
 
-def generate_token(user):
+def generate_token(user: User) -> Tuple[Dict[str, str], int]:
     try:
         # generate the auth token
         auth_token = User.encode_auth_token(user.id)
@@ -51,7 +52,7 @@ def generate_token(user):
         return response_object, 401
 
 
-def save_changes(data):
+def save_changes(data: User) -> None:
     db.session.add(data)
     db.session.commit()
 
