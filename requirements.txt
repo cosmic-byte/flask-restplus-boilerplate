@@ -7,7 +7,7 @@ flask>=0.12.3
 Flask-Bcrypt==0.7.1
 Flask-Cors==3.0.9
 Flask-Migrate==2.1.1
-flask-restx==0.2.0
+flask-restx==0.5.1
 Flask-Script==2.0.6
 Flask-SQLAlchemy==2.5.1
 Flask-Testing==0.7.1
