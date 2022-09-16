@@ -15,7 +15,7 @@ gunicorn==19.7.1
 itsdangerous==0.24
 Jinja2>=2.10.1
 jsonschema==2.6.0
-Mako==1.0.7
+Mako==1.2.2
 psycopg2-binary==2.8.5
 pycparser==2.18
 PyJWT==1.5.3
